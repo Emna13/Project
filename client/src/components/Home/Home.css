@@ -1,0 +1,29 @@
+#intro-example {
+  height: 600px;
+  min-width: 992px;
+}
+.mask {
+  height: 500px;
+  min-width: 992px;
+
+}
+
+.nav {
+  display: flex;
+  align-content: space-between;
+  list-style: none;
+  /* font-weight: bold; */
+  padding-left: 50%;
+  font-size: larger;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+a {
+  color: rgb(138, 137, 137);
+}
+a:hover {
+  background-color: #e50914;
+  color: white;
+}
+.btn {
+  background-color: red;
+}

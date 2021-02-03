@@ -1,0 +1,4 @@
+{
+    "mongoUri":"mongodb+srv://contact:gomycode@cluster0.pgbbg.mongodb.net/users?retryWrites=true&w=majority",
+    "secretOrKey":"my secret"
+}
