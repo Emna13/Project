@@ -12,6 +12,8 @@ import {
   REGISTER_USER,
   SEE_ALL_QUESTIONS,
   SEE_ALL_USERS,
+  SEE_MESSAGE,
+  SEND_MESSAGE,
 } from "../const/actionTypes";
 
 export const register = (newUser) => async (dispatch) => {
@@ -143,6 +145,34 @@ export const seeAllQuestions = () => async (dispatch) => {
     dispatch({
       type: SEE_ALL_QUESTIONS,
       payload: question.data,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const seeAllMessages = () => async (dispatch) => {
+  try {
+    const messages = await axios.get("/admin/message");
+    dispatch({
+      type: SEE_MESSAGE,
+      payload: messages.data,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const addMessage = (newMessage) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      Authorization: token,
+    },
+  };
+  try {
+    const addMes = await axios.post("/user/message/add", newMessage, config);
+    dispatch({
+      type: SEND_MESSAGE,
+      payload: addMes.data,
     });
   } catch (error) {
     console.error(error);

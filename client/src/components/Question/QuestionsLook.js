@@ -37,9 +37,9 @@ const QuestionsLook = ({ match }) => {
           ) : loading ? (
             <LinearProgress />
           ) : (
-            <div>
+            <div style={{marginBottom:'300px'}}>
               <div className="all">
-                <h4 style={{ margin: "20px" }}>All Questions</h4>
+                <h4 style={{ margin: "20px 20px 50px 20px" }}>All Questions</h4>
 
                 <Form.Group style={{ marginTop: "20px", width: "500px" }}>
                   <Form.Control

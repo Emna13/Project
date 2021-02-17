@@ -43,12 +43,4 @@ exports.comment = async (req, res) => {
     console.error(error);
   }
 };
-exports.deleteQuestion = async (req, res) => {
-  const questionId = req.params.id;
-  try {
-    const deleteQ = await Question.findByIdAndDelete(questionId);
-    res.send(question);
-  } catch (error) {
-    console.error(error);
-  }
-};
+

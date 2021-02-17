@@ -15,3 +15,7 @@ export const ASK_A_QUESTION = "ASK_A_QUESTION";
 export const COMMENT = "COMMENT";
 
 export const SEE_ALL_USERS = "SEE_ALL_USERS";
+
+export const SEND_MESSAGE="SEND_MESSAGE"
+export const SEE_MESSAGE="SEE_MESSAGE"
+

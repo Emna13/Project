@@ -14,6 +14,10 @@ exports.questionRules = () => [
   check(`questionBody`, `This field is required !`).notEmpty(),
 ];
 
+exports.messageRules = () => [
+  check(`subject`, `This field is required !`).notEmpty(),
+  check(`message`, `This field is required !`).notEmpty(),
+];
 
 exports.validator = (req, res, next) => {
   const errors = validationResult(req);

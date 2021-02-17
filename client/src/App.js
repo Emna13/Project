@@ -13,14 +13,10 @@ import { useDispatch } from "react-redux";
 import { getProfile } from "./js/actions";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
+import Admin from "./components/Profile/Admin";
+import AdminMessages from "./components/Profile/AdminMessages";
 
 function App() {
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getProfile());
-  // }, [dispatch]);
-
   return (
     <BrowserRouter>
       <Switch>
@@ -33,6 +29,8 @@ function App() {
         <Route exact path="/skills" component={QuestionsHome} />
         <Route exact path="/skills/:skill" component={QuestionsLook} />
         <Route exact path="/skills/:skill/:id" component={MyQuestions} />
+        <Route exact path="/users" component={Admin} />
+        <Route exact path="/messages" component={AdminMessages} />
       </Switch>
     </BrowserRouter>
   );

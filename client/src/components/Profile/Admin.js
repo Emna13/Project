@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { MDBDataTableV5 } from "mdbreact";
 import { seeAllQuestions, seeUsers } from "../../js/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,17 +8,15 @@ import Footer from "../Footer/Footer";
 
 const Admin = () => {
   const users = useSelector((state) => state.userReducer.users);
-  console.log(users);
+    const question = useSelector((state) => state.questionReducer.question);
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.userReducer.loading);
 
   useEffect(() => {
     dispatch(seeUsers());
-
     dispatch(seeAllQuestions());
+  
   }, [dispatch]);
-
-  const [datatable, setDatatable] = useState();
 
   return (
     <div>
@@ -27,16 +25,10 @@ const Admin = () => {
         <LinearProgress />
       ) : (
         <div>
-          {/* <div>
-            {users.map((user) => (
-            <div>{datatable.rows.name}={user.name}</div>
-            
-          ))}
-          </div> */}
-          <div>
+          <div style={{ margin: "50px" }}>
             <MDBDataTableV5
               hover
-              entriesOptions={[5, 20, 25]}
+              entriesOptions={[5, 10, 20]}
               entries={5}
               pagesAmount={4}
               data={{
@@ -78,19 +70,32 @@ const Admin = () => {
                     // sort: "disabled",
                     width: 100,
                   },
+                  // {
+                  //   label: "Comments Number",
+                  //   field: "commentsNumber",
+                  //   // sort: "disabled",
+                  //   width: 100,
+                  // },
                 ],
 
-                rows: users.map((user) => ({
-                  name: user.name,
-                  lastName: user.lastName,
-                  gender: user.gender,
-                  phoneNumber: user.phoneNumber,
-                  email: user.email,
-                })),
+                rows: users
+                  .filter((user) => user._id !== "60184f111638330d10017502")
+                  .map((user) => ({
+                    name: user.name,
+                    lastName: user.lastName,
+                    gender: user.gender,
+                    phoneNumber: user.phoneNumber,
+                    email: user.email,
+                    questionsNumber: question.filter(
+                      (question) => question.postedBy._id === user._id
+                    ).length,
+                    // commentsNumber:question.comments.filter(comment=>comment.postedBy._id==user._id).length,
+                  })),
               }}
               fullPagination
             />
           </div>
+          
         </div>
       )}
       <Footer />

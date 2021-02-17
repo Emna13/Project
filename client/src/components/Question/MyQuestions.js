@@ -24,7 +24,6 @@ const MyQuestions = ({ match }) => {
   const showComments = (id) => {
     setShowCom(!showCom);
   };
- 
 
   return (
     <div>
@@ -37,7 +36,13 @@ const MyQuestions = ({ match }) => {
             <LinearProgress />
           ) : (
             <div>
-              <div style={{ marginLeft: "100px", marginTop: "30px", marginBottom:'100px' }}>
+              <div
+                style={{
+                  marginLeft: "100px",
+                  marginTop: "30px",
+                  marginBottom: "100px",
+                }}
+              >
                 {question
                   .filter(
                     (question) =>
@@ -47,9 +52,15 @@ const MyQuestions = ({ match }) => {
                   .filter((question) => question._id === match.params.id)
                   .map((question, index) => (
                     <div>
-                      <div style={{borderStyle:"groove ", padding:'5px', margin:'5px 100px 5px 20px'}}>
+                      <div
+                        style={{
+                          borderStyle: "groove ",
+                          padding: "5px",
+                          margin: "5px 100px 5px 20px",
+                        }}
+                      >
                         <div className="container">
-                          <div className="row" >
+                          <div className="row">
                             <p
                               className="col-10 "
                               style={{ color: "grey", fontStyle: "italic" }}
@@ -59,11 +70,14 @@ const MyQuestions = ({ match }) => {
 
                             <p
                               className="col-2"
-                              style={{ color: "grey", fontStyle: "italic" , fontSize:'small', }}
+                              style={{
+                                color: "grey",
+                                fontStyle: "italic",
+                                fontSize: "small",
+                              }}
                             >
                               {dateFormat(question.date, "mediumDate")}{" "}
                               {dateFormat(question.date, "shortTime")}
-                              
                             </p>
                           </div>
                         </div>
@@ -72,7 +86,6 @@ const MyQuestions = ({ match }) => {
                             fontFamily: "sans-serif",
                             marginLeft: "20px",
                             marginRight: "100px",
-                            
                           }}
                         >
                           {question.questionBody}
@@ -89,16 +102,29 @@ const MyQuestions = ({ match }) => {
                               style={{
                                 backgroundColor: "#F0F0F0",
                                 margin: "50px 50px 5px 50px",
-                                borderStyle:"inset "
+                                borderStyle: "inset ",
                               }}
                             >
                               <div className="container">
                                 <div className="row">
-                                  <p className="col-10 " style={{fontSize:"small", fontStyle:"italic"}}>
+                                  <p
+                                    className="col-10 "
+                                    style={{
+                                      fontSize: "small",
+                                      fontStyle: "italic",
+                                    }}
+                                  >
                                     {comment.postedBy.name} :
                                   </p>
 
-                                  <p className="col-2" style={{ color: "grey", fontStyle: "italic" , fontSize:'small'}}>
+                                  <p
+                                    className="col-2"
+                                    style={{
+                                      color: "grey",
+                                      fontStyle: "italic",
+                                      fontSize: "small",
+                                    }}
+                                  >
                                     {dateFormat(comment.date, "mediumDate")}{" "}
                                     {dateFormat(comment.date, "shortTime")}
                                   </p>
@@ -115,7 +141,15 @@ const MyQuestions = ({ match }) => {
                           style={{ marginBottom: "10px" }}
                         >
                           <span>
-                            {!showCom ? "More comments" : "Less comments"}
+                            {!showCom
+                              ? `See  ${
+                                  question.comments.filter(
+                                    (comment) =>
+                                      question.comments.indexOf(comment) !==
+                                      question.comments.length - 1
+                                  ).length
+                                } more comment(s)`
+                              : "Less comments"}
                           </span>
                         </Link>
 
@@ -132,16 +166,29 @@ const MyQuestions = ({ match }) => {
                                   style={{
                                     backgroundColor: "#F0F0F0",
                                     margin: "10px 50px 5px 50px",
-                                    borderLeft:"solid rgb(229, 9, 2)"
+                                    borderLeft: "solid rgb(229, 9, 2)",
                                   }}
                                 >
                                   <div className="container">
                                     <div className="row">
-                                      <p className="col-10 " style={{fontSize:"small", fontStyle:"italic"}}>
+                                      <p
+                                        className="col-10 "
+                                        style={{
+                                          fontSize: "small",
+                                          fontStyle: "italic",
+                                        }}
+                                      >
                                         {comment.postedBy.name} :
                                       </p>
 
-                                      <p className="col-2" style={{ color: "grey", fontStyle: "italic" , fontSize:'small'}}>
+                                      <p
+                                        className="col-2"
+                                        style={{
+                                          color: "grey",
+                                          fontStyle: "italic",
+                                          fontSize: "small",
+                                        }}
+                                      >
                                         {dateFormat(comment.date, "mediumDate")}{" "}
                                         {dateFormat(comment.date, "shortTime")}
                                       </p>
@@ -169,7 +216,7 @@ const MyQuestions = ({ match }) => {
                               <input
                                 type="text"
                                 id="typeText"
-                                class="form-control col-10 mt-1 mr-5"
+                                class="form-control col-11 mt-1 ml-5"
                                 placeholder="Add a comment"
                               />
                             </form>
@@ -182,7 +229,7 @@ const MyQuestions = ({ match }) => {
             </div>
           )}
         </div>
-      <Footer/>
+        <Footer />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProfile } from "../../js/actions";
 
 import Admin from "./Admin";
+import AdminDash from "./AdminDash";
 import UserProfile from "./UserProfile";
 
 const Profile = () => {
@@ -21,7 +22,7 @@ const Profile = () => {
       <div
         style={{ backgroundColor: "#F6F6F6", width: "100%", height: "100% " }}
       >
-        {user && user._id !== "60184f111638330d10017502" ? <UserProfile /> : <Admin />}
+        {user && user._id !== "60184f111638330d10017502" ? <UserProfile /> : <AdminDash />}
       </div>
 
     </div>

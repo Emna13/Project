@@ -9,12 +9,15 @@ import {
   REGISTER_SUCCESS,
   REGISTER_USER,
   SEE_ALL_USERS,
+  SEE_MESSAGE,
+  SEND_MESSAGE,
 } from "../const/actionTypes";
 
 const initialState = {
   loading: false,
   user: null,
   users: [],
+  messages: [],
   errors: null,
 };
 
@@ -79,6 +82,16 @@ const userReducer = (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         users: payload,
+      };
+    case SEND_MESSAGE:
+      return {
+        ...state,
+        messages: payload,
+      };
+    case SEE_MESSAGE:
+      return {
+        ...state,
+        messages: payload,
       };
     default:
       return state;
