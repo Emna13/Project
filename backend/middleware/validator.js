@@ -6,13 +6,14 @@ exports.registerRules = () => [
   check(`gender`, `This field is required !`).notEmpty(),
   check("phoneNumber", `This field is required !`).isLength({ min: 8, max: 8 }),
   check("email", `This should be a valide email`).isEmail(),
-  check("password", `This field should at least 4 char !`).isLength({ min: 4 }),
+  check("password", `This field should at least have 4 char !`).isLength({ min: 4 }),
 ];
 
 exports.questionRules = () => [
   check(`skill`, `This field is required !`).notEmpty(),
   check(`questionBody`, `This field is required !`).notEmpty(),
 ];
+
 
 exports.validator = (req, res, next) => {
   const errors = validationResult(req);

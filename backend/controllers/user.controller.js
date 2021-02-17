@@ -51,5 +51,13 @@ exports.login = async (req, res) => {
     res.status(500).json({ errors: error });
   }
 };
-
+exports.users = async (req, res) => {
+  try {
+    const user = await User.find()
+    res.send(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ errors: error.message });
+  }
+};
 

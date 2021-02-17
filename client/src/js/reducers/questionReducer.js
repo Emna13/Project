@@ -1,21 +1,27 @@
-import { SEE_ALL_QUESTIONS } from "../const/actionTypes";
+import { ASK_A_QUESTION, SEE_ALL_QUESTIONS } from "../const/actionTypes";
 
 const initialState = {
-    question: [],
-  };
+  question: [],
+  loading: true,
+};
 
-const questionReducer = (state=initialState,action) => {
-  switch (action.type) {
-      case SEE_ALL_QUESTIONS:
-          return 
-          {}
-          
-         
-  
-      default:
-         return state;
+const questionReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case SEE_ALL_QUESTIONS:
+      return {
+        ...state,
+        question: payload,
+        loading:false
+      };
+    case ASK_A_QUESTION:
+      return {
+        ...state,
+        question: [payload,...state.question],
+        loading:false
+      };
+    default:
+      return state;
   }
-  
 };
 
 export default questionReducer;

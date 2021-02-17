@@ -3,27 +3,21 @@
   min-width: 992px;
 }
 .mask {
-  height: 500px;
+  height: 600px;
   min-width: 992px;
 
 }
 
-.nav {
-  display: flex;
-  align-content: space-between;
-  list-style: none;
-  /* font-weight: bold; */
-  padding-left: 50%;
-  font-size: larger;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-a {
-  color: rgb(138, 137, 137);
-}
-a:hover {
-  background-color: #e50914;
-  color: white;
-}
 .btn {
   background-color: red;
 }
+.center {
+
+ margin-bottom: 30px;
+  width: 100%;
+  background-color: rgb(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 5%;
+  
+}
+

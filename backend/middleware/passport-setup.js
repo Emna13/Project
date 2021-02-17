@@ -15,7 +15,6 @@ passport.use(
     const { id } = jwt_payload;
     try {
       const user = await User.findById(id).select('-password');
-      console.log(User)
       user ? done(null, user) : done(null, false);
     } catch (error) {
       console.error(error);

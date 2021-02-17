@@ -1,20 +1,40 @@
 .navBar {
     display: flex;
-    align-content: space-between;
-    padding-left: 40%;
+    padding-left: 38%;
+    margin-top: 1%;
     list-style: none;
-    font-size: larger;
+    font-size: x-large;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   
   }
 
   a {
     color: rgb(138, 137, 137);
   }
-  a:hover {
+  .nav-link:hover {
     background-color: #e50914;
     color: white;
    
   }
   .btn {
     background-color: red;
+  }
+  .nav-link{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  #profile{
+    color:grey
+  }
+  #profile :hover{
+    color:white
+  }
+  .menu{
+    margin: 100px;
+  }
+  .menu :hover{
+    background-color:rgb(229, 9, 20);
+    text-decoration: none;
+    color: white;
+    
   }

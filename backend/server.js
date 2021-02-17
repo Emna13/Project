@@ -2,11 +2,15 @@ const express=require('express')
 
 const connectDB=require('./config/connectDB')
 const user=require('./Routes/user')
+const admin=require('./Routes/admin')
+
 const app=express()
 
 app.use(express.json())
 
 app.use('/user',user)
+app.use('/admin',admin)
+
 connectDB()
 
 

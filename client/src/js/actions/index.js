@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  ASK_A_QUESTION,
   GET_PROFILE,
   GET_PROFILE_FAIL,
   GET_PROFILE_SUCCESS,
@@ -9,6 +10,8 @@ import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
   REGISTER_USER,
+  SEE_ALL_QUESTIONS,
+  SEE_ALL_USERS,
 } from "../const/actionTypes";
 
 export const register = (newUser) => async (dispatch) => {
@@ -50,7 +53,7 @@ export const login = (cred) => async (dispatch) => {
 };
 
 export const getProfile = () => async (dispatch) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   const config = {
     headers: {
       Authorization: token,
@@ -70,5 +73,78 @@ export const getProfile = () => async (dispatch) => {
       type: GET_PROFILE_FAIL,
       payload: error.response.data,
     });
+  }
+};
+
+export const seeQuestions = () => async (dispatch) => {
+  try {
+    const question = await axios.get("/user/questions");
+    dispatch({
+      type: SEE_ALL_QUESTIONS,
+      payload: question.data,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const add = (newQuestion) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      Authorization: token,
+    },
+  };
+  try {
+    const addQes = await axios.post("/user/questions/add", newQuestion, config);
+    dispatch({
+      type: ASK_A_QUESTION,
+      payload: addQes.data,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const comment = (id,newComment) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      Authorization: token,
+    },
+  };
+  try {
+    const addCom = await axios.put(`/user/questions/comment/${id}`, newComment, config);
+    dispatch(seeQuestions());
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const seeUsers = () => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      Authorization: token,
+    },
+  };
+  try {
+    const users = await axios.get("/admin/users", config);
+    dispatch({
+      type: SEE_ALL_USERS,
+      payload: users.data,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const seeAllQuestions = () => async (dispatch) => {
+  try {
+    const question = await axios.get("/admin/questions");
+    dispatch({
+      type: SEE_ALL_QUESTIONS,
+      payload: question.data,
+    });
+  } catch (error) {
+    console.error(error);
   }
 };

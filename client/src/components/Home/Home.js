@@ -1,17 +1,15 @@
 import React from "react";
-
-import NavBar from "../NavBar/NavBar";
+import { Redirect } from "react-router-dom";
 import "./Home.css";
+
 
 
 const Home = () => {
   return (
     <div>
-      <header>
-        <NavBar/>
-      </header>
-        
-
+      {localStorage.getItem("token") ? (
+        <Redirect to="/skills" />
+      ) : (
         <div
           id="intro-example"
           className="p-5 text-center bg-image"
@@ -21,16 +19,21 @@ const Home = () => {
             backgroundRepeat: "no-repeat",
             height: "100%",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+           
             backgroundSize: "cover",
           }}
         >
           <div
             className="mask"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
           >
             <div className="d-flex justify-content-center align-items-center h-100">
               <div className="text-white">
+                <img
+                  src="https://gomycodewebsite.blob.core.windows.net/website/img/black_Logo_342868e838_129748d4cd.svg"
+                  className="center"
+                  alt=""
+                />
                 <h1 className="mb-3" style={{ fontWeight: "bold" }}>
                   Learn by <span style={{ color: "red" }}>S</span>haring
                 </h1>
@@ -41,15 +44,12 @@ const Home = () => {
                   href="/signup"
                   className="btn btn-outline-light btn-lg m-2"
                   role="button"
-                  rel="nofollow"
-                  target="_blank"
                 >
                   Sign Up
                 </a>
                 <a
                   className="btn btn-outline-light btn-lg m-2"
                   href="/login"
-                  target="_blank"
                   role="button"
                 >
                   Sign In
@@ -58,7 +58,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      
+      )}
     </div>
   );
 };

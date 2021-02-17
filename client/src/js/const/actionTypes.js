@@ -12,3 +12,6 @@ export const GET_PROFILE_FAIL = "GET_PROFILE_FAIL";
 
 export const SEE_ALL_QUESTIONS = "SEE_ALL_QUESTIONS";
 export const ASK_A_QUESTION = "ASK_A_QUESTION";
+export const COMMENT = "COMMENT";
+
+export const SEE_ALL_USERS = "SEE_ALL_USERS";

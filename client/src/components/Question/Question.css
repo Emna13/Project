@@ -1,0 +1,59 @@
+.card-image:hover {
+  border: 5px;
+}
+
+.link {
+  color: lightgray;
+}
+.link:hover {
+  text-decoration: none;
+  color: white;
+}
+.addQ {
+  font-size: large;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  /* align-items: baseline; */
+}
+.question {
+  margin-left: 80px;
+  padding: 3px;
+  background-color: #f5f5f5;
+  margin-right: 150px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border: outset;
+}
+.question:link{
+  text-decoration: none;
+}
+.question:hover {
+  text-decoration: none;
+  background-color: rgb(229, 9, 2, 0.1);
+  color: black;
+}
+.question:active{
+  text-decoration: none;
+}
+.all {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.questionList {
+  margin-left: 50px;
+  margin-right: 20px;
+  color: rgb(114, 111, 111);
+}
+.questionList:hover{
+  text-decoration: none;
+  color:black
+}
+
+

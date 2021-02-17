@@ -8,11 +8,13 @@ import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
   REGISTER_USER,
+  SEE_ALL_USERS,
 } from "../const/actionTypes";
 
 const initialState = {
   loading: false,
   user: null,
+  users: [],
   errors: null,
 };
 
@@ -71,6 +73,12 @@ const userReducer = (state = initialState, { type, payload }) => {
         loading: false,
         isAuth: payload,
         user: payload,
+      };
+    case SEE_ALL_USERS:
+      return {
+        ...state,
+        loading: false,
+        users: payload,
       };
     default:
       return state;
